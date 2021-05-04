@@ -4,9 +4,10 @@ Using phobert model by VinAI research for NER task on VLSP2016 dataset
 ### Tokenization
 Data must be tokenized before fine-tune
 Using VnCoreNLP's word segmenter to pre-process input raw texts
-```
-A word segmenter must be applied to produce word-segmented texts before feeding to PhoBERT. As PhoBERT employed the [RDRSegmenter](https://github.com/datquocnguyen/RDRsegmenter) from [VnCoreNLP](https://github.com/vncorenlp/VnCoreNLP) to pre-process the pre-training data
-```
+
+A word segmenter must be applied to produce word-segmented texts before feeding to PhoBERT.\
+As PhoBERT employed the [RDRSegmenter](!https://github.com/datquocnguyen/RDRsegmenter) from [VnCoreNLP](!https://github.com/vncorenlp/VnCoreNLP) to pre-process the pre-training data
+
 #### Installation
 ```
 # Install the vncorenlp python wrapper
