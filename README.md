@@ -1,5 +1,22 @@
 # Phobert-Named-Entity-Reconigtion
-Using phobert model by VinAI research for NER task on VLSP2016 dataset
+Using [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-transformers) model by [VinAI Research](https://github.com/VinAIResearch) for NER task on VLSP2016 dataset
+
+### Phobert with ```transformers```
+#### Installation
+* Python 3.6+, Pytorch 1.1.0+ (or TensorFlow 2.0+)
+* Install ```transformers```:
+	* ```git clone https://github.com/huggingface/transformers.git```
+	* ```cd transformers```
+	* ```pip3 install --upgrade```
+
+#### Pre-trained models
+Model | #params | Arch. | Pre-training data
+------------ | ------------- | ------------- | -------------
+```vinai/phobert-base``` | 135M | base | 20GB of texts
+```vinai/phobert-large``` | 370M | large | 20GB of texts
+
+You can fine-tune with either large model or base model , with base model train faster but large model give better result. \
+For general use, just fine-tune on base model as large model only give a slightly better result
 
 ### Tokenization
 Data must be tokenized before fine-tune
@@ -59,15 +76,15 @@ miền_Trung B_LOC
 
 the tagging follow conll2003 dataset as
 ```
-    "O",       # Outside of a named entity
-    "B-MISC",  # Beginning of a miscellaneous entity right after another miscellaneous entity
-    "I-MISC",  # Miscellaneous entity
-    "B-PER",   # Beginning of a person's name right after another person's name
-    "I-PER",   # Person's name
-    "B-ORG",   # Beginning of an organisation right after another organisation
-    "I-ORG",   # Organisation
-    "B-LOC",   # Beginning of a location right after another location
-    "I-LOC"    # Location
+"O"        # Outside of a named entity
+"B-MISC"   # Beginning of a miscellaneous entity right after another miscellaneous entity
+"I-MISC"   # Miscellaneous entity
+"B-PER"    # Beginning of a person's name right after another person's name
+"I-PER"    # Person's name
+"B-ORG"    # Beginning of an organisation right after another organisation
+"I-ORG"    # Organisation
+"B-LOC"    # Beginning of a location right after another location
+"I-LOC"    # Location
 ```
 
 ### Run fine-tuning for NER task
