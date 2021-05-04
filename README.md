@@ -23,7 +23,7 @@ Data must be tokenized before fine-tune
 Using VnCoreNLP's word segmenter to pre-process input raw texts
 
 A word segmenter must be applied to produce word-segmented texts before feeding to PhoBERT.\
-As PhoBERT employed the [RDRSegmenter](!https://github.com/datquocnguyen/RDRsegmenter) from [VnCoreNLP](!https://github.com/vncorenlp/VnCoreNLP) to pre-process the pre-training data
+As PhoBERT employed the [RDRSegmenter](https://github.com/datquocnguyen/RDRsegmenter) from [VnCoreNLP](https://github.com/vncorenlp/VnCoreNLP) to pre-process the pre-training data
 
 #### Installation
 ```
@@ -55,36 +55,6 @@ text = "Ông Nguyễn Khắc Chúc  đang làm việc tại Đại học Quốc 
 sentences = rdrsegmenter.tokenize(text) 
 for sentence in sentences:
 	print(" ".join(sentence))
-```
-
-### Custom NER dataset
-
-if you want to use with custom dataset, the data should be formatted as
-```
-word(space)tag
-```
-
-e.g.:
-```
-lũ lụt ở miền_Trung
-
-lũ 0
-lụt 0
-ở 0
-miền_Trung B_LOC
-```
-
-the tagging follow conll2003 dataset as
-```
-"O"        # Outside of a named entity
-"B-MISC"   # Beginning of a miscellaneous entity right after another miscellaneous entity
-"I-MISC"   # Miscellaneous entity
-"B-PER"    # Beginning of a person's name right after another person's name
-"I-PER"    # Person's name
-"B-ORG"    # Beginning of an organisation right after another organisation
-"I-ORG"    # Organisation
-"B-LOC"    # Beginning of a location right after another location
-"I-LOC"    # Location
 ```
 
 ### Run fine-tuning for NER task
@@ -124,8 +94,73 @@ python run_ner.py \
 --do_predict true \
 ```
 
+#### VLSP2016 NER data
+Data have been preprocessing with word segmentation and POS tagging. The data consist of five columns, in which two columns are separated by a single space. Each word has been put on a separate line and there is an empty line after each sentence.
+
+1. The first column is the word
+2. The second column is its POS tag
+3. The third column is its chunking tag
+4. The fourth column is its NE label
+5. The fifth column is its nested NE label
+
+word | POS | chunking | NE | nested NE
+---| --- | --- | --- | ---
+Anh |	N |	B-NP |	O |	O
+Thanh |	Np |	I-NP |	B-PER |	O
+là |	V |	B-VP |	O |	O
+cán_bộ |	N |	B-NP |	O |	O
+Uỷ ban |	N |	B-NP |	B-ORG |	O
+nhân_dân |	N |	I-NP |	I-ORG |	O
+Thành_phố |	N |	I-NP |	I-ORG |	B-LOC
+Hà_Nội |	Np |	I-NP |	I-ORG |	I-LOC
+. |	. |	O |	O |	O
 
 
+This script only use word and NE column so the training data look like this
+
+word | NE
+--- | ---
+Anh | O 
+Thanh | B-PER
+là | O
+cán_bộ | O
+Uỷ ban | B-ORG
+nhân_dân | I-ORG
+Thành_phố | I-ORG
+Hà_Nội | I-ORG
+. | O
 
 
+preprocess the VLSP2016 dataset with ```preprocessing.py``` script to get the training data format
+### Custom NER dataset
+
+if you want to use with custom dataset, the data should be formatted as
+```
+word(space)tag
+```
+
+e.g.:
+```
+tắc đường ở Hà_Nội
+
+tắc 0
+đường 0
+ở 0
+Hà_Nội B_LOC
+```
+
+the tagging follow conll2003 dataset as
+```
+"O"        # Outside of a named entity
+"B-MISC"   # Beginning of a miscellaneous entity right after another miscellaneous entity
+"I-MISC"   # Miscellaneous entity
+"B-PER"    # Beginning of a person's name right after another person's name
+"I-PER"    # Person's name
+"B-ORG"    # Beginning of an organisation right after another organisation
+"I-ORG"    # Organisation
+"B-LOC"    # Beginning of a location right after another location
+"I-LOC"    # Location
+```
+
+If you want to get access to [VLSP2016 dataset](https://vlsp.org.vn/resources-vlsp2016), sign the user agreement and mail to VLSP association
 
