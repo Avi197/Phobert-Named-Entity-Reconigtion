@@ -1,5 +1,5 @@
 # Phobert-Named-Entity-Reconigtion
-Using [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-transformers) model by [VinAI Research](https://github.com/VinAIResearch) for NER task on VLSP2016 dataset
+Using [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-transformers) model by [VinAI Research](https://github.com/VinAIResearch) for NER task on VLSP2016/ VLSP2018 dataset
 
 ### Phobert with ```transformers```
 #### Installation
