@@ -18,6 +18,10 @@ Model | #params | Arch. | Pre-training data
 You can fine-tune with either large model or base model , with base model train faster but large model give better result. \
 For general use, just fine-tune on base model as large model only give a slightly better result
 
+### Results
+Using only phobert-base, NER task return __F1 = 94.7%__
+
+
 ### Tokenization
 Data must be tokenized before fine-tune
 Using VnCoreNLP's word segmenter to pre-process input raw texts
