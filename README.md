@@ -1,7 +1,7 @@
 # Phobert Named Entity Reconigtion
 Using [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-transformers) model by [VinAI Research](https://github.com/VinAIResearch) for NER task on various datasets
 
-Tested on VLSP2016 test set using PhoBERT-base yield 94.7 F1 score
+Tested on VLSP2016 test set using PhoBERT-base yield <b>94.7 F1 score</b>
 
 Check the [notebook](https://github.com/Avi197/Phobert-Named-Entity-Reconigtion/blob/main/phobert-ner%20prediction.ipynb) for more detail
 
