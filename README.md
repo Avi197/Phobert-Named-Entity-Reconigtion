@@ -1,7 +1,9 @@
 # Phobert Named Entity Reconigtion
 Using [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-transformers) model by [VinAI Research](https://github.com/VinAIResearch) for NER task on various datasets
 
-Implemented as pytorch lightning in [undertheseanlp](https://github.com/undertheseanlp) NER task
+Tested on VLSP2016 test set using PhoBERT-base yield 94.7 F1 score
+
+Implemented in [undertheseanlp](https://github.com/undertheseanlp) NER task
 
 ## Phobert with ```transformers```
 #### Installation
@@ -19,10 +21,6 @@ Model | #params | Arch. | Pre-training data
 
 You can fine-tune with either large model or base model , with base model train faster but large model give better result. \
 For general use, just fine-tune on base model as large model only give a slightly better result
-
-## Results
-Using only phobert-base, NER task return __F1 = 94.7%__
-
 
 ## Tokenization
 Data must be tokenized before fine-tune
