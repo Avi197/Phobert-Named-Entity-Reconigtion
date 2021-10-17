@@ -1,7 +1,9 @@
 # Phobert Named Entity Reconigtion
 Using [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-transformers) model by [VinAI Research](https://github.com/VinAIResearch) for NER task on various datasets
 
-### Phobert with ```transformers```
+Implemented as pytorch lightning in [undertheseanlp](https://github.com/undertheseanlp) NER task
+
+## Phobert with ```transformers```
 #### Installation
 * Python 3.6+, Pytorch 1.1.0+ (or TensorFlow 2.0+)
 * Install ```transformers```:
@@ -18,18 +20,18 @@ Model | #params | Arch. | Pre-training data
 You can fine-tune with either large model or base model , with base model train faster but large model give better result. \
 For general use, just fine-tune on base model as large model only give a slightly better result
 
-### Results
+## Results
 Using only phobert-base, NER task return __F1 = 94.7%__
 
 
-### Tokenization
+## Tokenization
 Data must be tokenized before fine-tune
 Using VnCoreNLP's word segmenter to pre-process input raw texts
 
 A word segmenter must be applied to produce word-segmented texts before feeding to PhoBERT.\
 As PhoBERT employed the [RDRSegmenter](https://github.com/datquocnguyen/RDRsegmenter) from [VnCoreNLP](https://github.com/vncorenlp/VnCoreNLP) to pre-process the pre-training data
 
-#### Installation
+#### VncoreNLP installation
 ```
 # Install the vncorenlp python wrapper
 pip3 install vncorenlp
@@ -44,7 +46,7 @@ mv vi-vocab vncorenlp/models/wordsegmenter/
 mv wordsegmenter.rdr vncorenlp/models/wordsegmenter/
 ```
 
-#### Example usage
+#### Tokenization xample usage
 ```
 # See more details at: https://github.com/vncorenlp/VnCoreNLP
 
@@ -61,7 +63,7 @@ for sentence in sentences:
 	print(" ".join(sentence))
 ```
 
-### Run fine-tuning for NER task
+## Run fine-tuning for NER task
 The config.json file contain the arguments for run_ner, you can change the parameters in the config file or just run from command line
 
 json config
@@ -98,7 +100,7 @@ python run_ner.py \
 --do_predict true \
 ```
 
-#### VLSP2016 NER data
+### VLSP2016 NER data
 Data have been preprocessing with word segmentation and POS tagging. The data consist of five columns, in which two columns are separated by a single space. Each word has been put on a separate line and there is an empty line after each sentence.
 
 1. The first column is the word
@@ -165,6 +167,10 @@ the tagging follow conll2003 dataset as
 "B-LOC"    # Beginning of a location right after another location
 "I-LOC"    # Location
 ```
+
+# Acknowledgements
+Pretrained model [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-transformers) by [VinAI Research](https://github.com/VinAIResearch)
+NER dataset from [VLSP2016 dataset](https://vlsp.org.vn/resources-vlsp2016)
 
 If you want to get access to [VLSP2016 dataset](https://vlsp.org.vn/resources-vlsp2016), sign the user agreement and mail to VLSP association
 
