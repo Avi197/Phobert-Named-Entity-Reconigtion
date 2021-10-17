@@ -3,6 +3,8 @@ Using [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-tra
 
 Tested on VLSP2016 test set using PhoBERT-base yield 94.7 F1 score
 
+Check the [notebook](https://github.com/Avi197/Phobert-Named-Entity-Reconigtion/blob/main/phobert-ner%20prediction.ipynb) for more detail
+
 Implemented in [undertheseanlp](https://github.com/undertheseanlp) NER task
 
 ## Phobert with ```transformers```
