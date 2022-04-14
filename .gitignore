@@ -1,2 +1,10 @@
 .idea/
 .ipynb_checkpoints/
+__pycache__/
+tagging_stock_data/
+
+phobert_config_stock.json
+phobert-training.ipynb
+phobert-ner-mck
+labels.txt
+phobert-ner
