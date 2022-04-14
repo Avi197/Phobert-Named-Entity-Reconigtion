@@ -71,6 +71,7 @@ json config
 {
     "data_dir": "bert-ner/data",
     "model_name_or_path": "vinai/phobert-base",
+    "labels": "label.txt path",
     "output_dir": "phobert-ner",
     "max_seq_length": 128,
     "num_train_epochs": 3,
@@ -89,6 +90,7 @@ command line
 python run_ner.py \
 --data_dir /bert-ner/data \
 --model_name_or_path vinai/phobert-base \
+--labels label_path \
 --output_dir phobert-ner \
 --max_seq_length 128 \
 --num_train_epochs 3 \
@@ -153,6 +155,11 @@ tắc 0
 đường 0
 ở 0
 Hà_Nội B_LOC
+```
+
+Get the unique labels from data
+```
+cat train.txt dev.txt test.txt | cut -d " " -f 2 | grep -v "^$"| sort | uniq > labels.txt
 ```
 
 the tagging follow conll2003 dataset as
