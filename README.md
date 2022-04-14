@@ -168,6 +168,14 @@ the tagging follow conll2003 dataset as
 "I-LOC"    # Location
 ```
 
+clean up multiple blank lines
+```
+awk '!NF {if (++n <= 1) print; next}; {n=0;print}' train.txt > train_clean.txt
+awk '!NF {if (++n <= 1) print; next}; {n=0;print}' dev.txt > dev_clean.txt
+awk '!NF {if (++n <= 1) print; next}; {n=0;print}' test.txt > test_clean.txt
+```
+
+
 # Acknowledgements
 Pretrained model [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-transformers) by [VinAI Research](https://github.com/VinAIResearch)
 NER dataset from [VLSP2016 dataset](https://vlsp.org.vn/resources-vlsp2016)
