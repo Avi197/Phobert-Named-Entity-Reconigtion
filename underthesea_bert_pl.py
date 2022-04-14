@@ -55,6 +55,7 @@ class TokenClassificationCorpus:
         tokens = [_[0] for _ in rows]
         labels = [_[1] for _ in rows]
         labels_encoded = self.label_encoder.encode(labels)
+
         return {
             "tokens": tokens,
             "labels": labels_encoded
@@ -62,6 +63,7 @@ class TokenClassificationCorpus:
 
     def _extract_sentences(self, file):
         with open(file) as f:
+            print(file)
             content = f.read().strip()
             sentences = content.split("\n\n")
             sentences = [self._extract_sentence(s) for s in sentences]
@@ -169,7 +171,7 @@ class BertForTokenClassification(pl.LightningModule):
         input_ids = batch["input_ids"]
         attention_mask = batch["attention_mask"]
         labels = batch["labels"]
-        loss, outputs = self(input_ids, attention_mask, labels)
+        loss, outputs = self.forward(input_ids, attention_mask, labels)
         self.log('train_loss', loss)
 
     def validation_step(self, batch, batch_idx):
@@ -192,7 +194,7 @@ class BertForTokenClassification(pl.LightningModule):
 
 
 def main():
-    corpus_folder = "bert-ner/data"
+    corpus_folder = '/opt/github/Phobert-Named-Entity-Reconigtion/tagging_stock_data'
     corpus = TokenClassificationCorpus(corpus_folder)
     tokenizer = AutoTokenizer.from_pretrained(BERT_MODEL_NAME, use_fast=False)
     datamodule = TokenClassificationDataModule(corpus, tokenizer)
