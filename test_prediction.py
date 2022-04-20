@@ -14,7 +14,7 @@ from transformers import (
     EvalPrediction,
     Trainer
 )
-from utils_ner import Split, TokenClassificationDataset, TokenClassificationTask
+from train.utils_ner import Split, TokenClassificationDataset, TokenClassificationTask
 
 logger = logging.getLogger(__name__)
 
