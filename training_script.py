@@ -25,6 +25,7 @@ from transformers.trainer_utils import is_main_process
 from utils_ner import Split, TokenClassificationDataset, TokenClassificationTask
 from datasets import ClassLabel, load_dataset, load_metric
 
+
 # base_model = "vinai/phobert-base"
 #
 # # phobert = AutoModel.from_pretrained(base_model)
@@ -48,3 +49,4 @@ from datasets import ClassLabel, load_dataset, load_metric
 # raw_datasets = load_dataset(extension, data_files=data_files, cache_dir=cache_dir)
 
 def convert_data():
+    pass
