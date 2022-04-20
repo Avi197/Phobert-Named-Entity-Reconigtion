@@ -1,5 +1,6 @@
 .idea/
 .ipynb_checkpoints/
+test.py
 __pycache__/
 tagging_stock_data/
 
