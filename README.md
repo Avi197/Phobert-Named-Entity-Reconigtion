@@ -3,7 +3,7 @@ Using [Phobert](https://github.com/VinAIResearch/PhoBERT#-using-phobert-with-tra
 
 Tested on VLSP2016 test set using PhoBERT-base yield <b>94.7 F1 score</b>
 
-Check the [notebook](https://github.com/Avi197/Phobert-Named-Entity-Reconigtion/blob/main/phobert-ner%20prediction.ipynb) for more detail
+Check the [notebook](https://github.com/Avi197/Phobert-Named-Entity-Reconigtion/blob/main/prediction.ipynb) for more detail
 
 Implemented in [undertheseanlp](https://github.com/undertheseanlp) NER task
 
