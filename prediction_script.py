@@ -120,8 +120,8 @@ def tagging(tokenize_sentences, result_path):
 
 
 if __name__ == '__main__':
-    bert_path = '/home/phamson/gitlab/vnd-social-listening/app/data/bert/MCK_NER_0.1'
-    phobert_path = '/home/phamson/gitlab/vnd-social-listening/app/data/bert/phobert-base'
+    bert_path = ''
+    phobert_path = ''
 
     phobert_ner = AutoModelForTokenClassification.from_pretrained(bert_path)
     tokenizer = AutoTokenizer.from_pretrained(phobert_path, use_fast=False)
@@ -129,8 +129,8 @@ if __name__ == '__main__':
     torch.set_num_threads(2)
     from pathlib import Path
 
-    text_path = '/home/phamson/data/articles'
-    out_path = '/home/phamson/data/social_listening_preprocess'
+    text_path = ''
+    out_path = ''
     count = 1
     for text_file in glob.glob(text_path + '/*.txt'):
         with open(text_file, 'r') as f:
